@@ -1,0 +1,49 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fair: <https://w3id.org/profile/fair> .
+@prefix loci: <https://linked.data.gov.au/def/loci#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://vocab.nerc.ac.uk/collection/R04/current/> 
+    rdfs:label "Argo data centres and institutions" ;
+    fair:hasFairScore [ 
+        a qudt:Quantity ;
+        dcterms:hasPart [ 
+            a qudt:QuantityKind, fair:PrincipleScore ;
+                rdfs:label "Accessable Score" ;
+                qudt:hasQuantity [ a qudt:QuantityValue ;
+                        qudt:unit unit:PERCENT ;
+                        qudt:value "78.3"^^xsd:float ] ;
+                rdfs:comment "Once someone finds the required data, they need to know how the data can be accessed" ],
+            [ a qudt:QuantityKind,
+                    fair:PrincipleScore ;
+                rdfs:label "Reusable Score" ;
+                qudt:hasQuantity [ a qudt:QuantityValue ;
+                        qudt:unit unit:PERCENT ;
+                        qudt:value "60.0"^^xsd:float ] ;
+                rdfs:comment "Data should be well-described so they can be reused and replicated in different settings." ],
+            [ a qudt:QuantityKind,
+                    fair:PrincipleScore ;
+                rdfs:label "Interoperable Score" ;
+                qudt:hasQuantity [ a qudt:QuantityValue ;
+                        qudt:unit unit:PERCENT ;
+                        qudt:value "55.0"^^xsd:float ] ;
+                rdfs:comment "The data needs to be easily integrated with other data for analysis, storage, and processing." ],
+            [ a qudt:QuantityKind,
+                    fair:PrincipleScore ;
+                rdfs:label "Findable Score" ;
+                qudt:hasQuantity [ a qudt:QuantityValue ;
+                        qudt:unit unit:PERCENT ;
+                        qudt:value "83.5"^^xsd:float ] ;
+                rdfs:comment "Metadata and data should be easy to find for both humans and computers" ] ;
+        prov:wasDerivedFrom <http://pid.geoscience.gov.au/def/Access_Codes?_profile=dcat> ;
+        loci:hadGenerationMethod <https://w3id.org/profile/fair/method/DCAT2> ] ;
+.
+
+<https://w3id.org/profile/fair/method/DCAT2> a prov:Plan ;
+    rdfs:label "DCAT2 FAIR Calculation" ;
+.
+
